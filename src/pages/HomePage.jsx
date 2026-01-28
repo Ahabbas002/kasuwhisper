@@ -69,7 +69,7 @@ const HomePage = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         {features.map((feature) => (
           <div key={feature.title} className={`card animate-slide-up ${feature.bg} p-3 rounded-xl shadow-lg`}>
-            <div className={`w-12 h-12 ${feature.bgColor} rounded-xl flex items-center justify-center mb-4`}>
+            <div className={`w-12 h-12 ${feature.bgColor} rounded-full flex items-center justify-center mb-4`}>
               <feature.icon className={`w-6 h-6 ${feature.color}`} />
             </div>
             <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>

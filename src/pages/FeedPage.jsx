@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { TrendingUp, Flame, Clock, Search, Plus, Users } from 'lucide-react'
 import PostCard from '../components/feed/PostCard'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
-import { mockPosts, mockGroups } from '../data/mockData'
+import { mockPosts } from '../data/mockData'
 
 const FeedPage = () => {
   const [posts, setPosts] = useState([])

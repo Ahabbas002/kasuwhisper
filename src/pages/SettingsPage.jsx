@@ -1,25 +1,5 @@
 import { useState } from 'react'
-import {
-  Settings as SettingsIcon,
-  Bell,
-  Shield,
-  Moon,
-  Globe,
-  Palette,
-  Download,
-  Smartphone,
-  LogOut,
-  Eye,
-  EyeOff,
-  Save,
-  X,
-  User,
-  Database,
-  RefreshCw,
-  Volume2,
-  Zap,
-} from 'lucide-react'
-import Button from '../components/ui/Button'
+import { Bell, Shield, Moon, Globe, Palette, Download, Smartphone, LogOut, Save, X, User, Database, RefreshCw, Volume2, Zap } from 'lucide-react'
 import Card from '../components/ui/Card'
 import Modal from '../components/ui/Modal'
 
@@ -96,7 +76,7 @@ const SettingsPage = () => {
                   className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl text-left transition-colors ${
                     activeTab === tab.id
                       ? 'bg-green-600 text-white font-semibold'
-                      : 'text-gray-600 hover:text-green-600 hover:bg-green-50'
+                      : 'text-green-600 hover:text-green-600 hover:bg-green-50'
                   }`}
                 >
                   <tab.icon className="w-5 h-5" />
@@ -114,11 +94,11 @@ const SettingsPage = () => {
             <>
               <Card>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center">
                     <User className="w-5 h-5 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Account Settings</h3>
+                    <h3 className="text-xl font-semibold text-green-600">Account Settings</h3>
                     <p className="text-gray-600 text-sm">Manage your anonymous profile</p>
                   </div>
                 </div>
@@ -126,13 +106,13 @@ const SettingsPage = () => {
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-green-600 mb-2">
                         Display Name
                       </label>
                       <input
                         type="text"
                         placeholder="Anonymous Student"
-                        className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500"
+                        className="w-full px-4 py-2 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600"
                         disabled
                       />
                       <p className="text-sm text-gray-500 mt-2">
@@ -140,11 +120,11 @@ const SettingsPage = () => {
                       </p>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-green-600 mb-2">
                         Department
                       </label>
-                      <select className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500">
-                        <option value="">Select your department</option>
+                      <select className="w-full px-4 py-2 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600">
+                        <option value="" selected disabled>Select your department</option>
                         <option value="cs">Computer Science</option>
                         <option value="math">Mathematics</option>
                         <option value="bio">Biology</option>
@@ -159,17 +139,17 @@ const SettingsPage = () => {
 
               <Card>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
                     <Database className="w-5 h-5 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Data Management</h3>
+                    <h3 className="text-xl font-semibold text-green-600">Data Management</h3>
                     <p className="text-gray-600 text-sm">Control your data and privacy</p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="p-4 bg-green-50 rounded-xl border border-green-200">
+                  <div className="p-4 bg-green-50 rounded-xl ">
                     <div className="flex items-start gap-3">
                       <Shield className="w-5 h-5 text-green-600 mt-0.5" />
                       <div>
@@ -197,10 +177,10 @@ const SettingsPage = () => {
                 </div>
               </Card>
 
-              <Card>
-                <div className="flex items-center justify-between">
+              <Card className='shadow-lg'>
+                <div className="flex items-center justify-between ">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
                       <LogOut className="w-5 h-5 text-green-600" />
                     </div>
                     <div>
@@ -221,11 +201,11 @@ const SettingsPage = () => {
           {activeTab === 'notifications' && (
             <Card>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
                   <Bell className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900">Notification Settings</h3>
+                  <h3 className="text-xl font-semibold text-green-600">Notification Settings</h3>
                   <p className="text-gray-600 text-sm">Choose what notifications to receive</p>
                 </div>
               </div>
@@ -237,13 +217,13 @@ const SettingsPage = () => {
                     className="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:border-green-500 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                         value ? 'bg-green-100' : 'bg-gray-100'
                       }`}>
                         <Bell className={`w-5 h-5 ${value ? 'text-green-600' : 'text-gray-400'}`} />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900 capitalize">
+                        <p className="font-medium text-green-600 capitalize">
                           {key.replace(/([A-Z])/g, ' $1')}
                         </p>
                         <p className="text-sm text-gray-600">
@@ -284,11 +264,11 @@ const SettingsPage = () => {
           {activeTab === 'privacy' && (
             <Card>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
                   <Shield className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900">Privacy Settings</h3>
+                  <h3 className="text-xl font-semibold text-green-600">Privacy Settings</h3>
                   <p className="text-gray-600 text-sm">Control your privacy preferences</p>
                 </div>
               </div>
@@ -300,13 +280,13 @@ const SettingsPage = () => {
                     className="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:border-green-500 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                         value ? 'bg-green-100' : 'bg-gray-100'
                       }`}>
                         <Shield className={`w-5 h-5 ${value ? 'text-green-600' : 'text-gray-400'}`} />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900 capitalize">
+                        <p className="font-medium text-green-600 capitalize">
                           {key.replace(/([A-Z])/g, ' $1')}
                         </p>
                         <p className="text-sm text-gray-600">
@@ -337,7 +317,7 @@ const SettingsPage = () => {
                     <Shield className="w-5 h-5 text-green-600 mt-0.5" />
                     <div>
                       <p className="font-medium text-green-800 mb-2">Your Privacy is Protected</p>
-                      <ul className="space-y-1 text-sm text-green-800">
+                      <ul className="space-y-1 text-sm text-gray-500">
                         <li>• We never collect personal information</li>
                         <li>• All whispers are truly anonymous</li>
                         <li>• Data is encrypted and automatically deleted</li>
@@ -361,22 +341,22 @@ const SettingsPage = () => {
           {activeTab === 'appearance' && (
             <Card>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
                   <Palette className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900">Appearance Settings</h3>
+                  <h3 className="text-xl font-semibold text-green-600">Appearance Settings</h3>
                   <p className="text-gray-600 text-sm">Customize the look and feel</p>
                 </div>
               </div>
               
               <div className="space-y-6">
-                <div className="p-4 border border-gray-200 rounded-xl">
+                <div className="p-4 border border-green-600 rounded-xl">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <Moon className="w-5 h-5 text-gray-600" />
+                      <Moon className="w-5 h-5 text-green-600" />
                       <div>
-                        <p className="font-medium text-gray-900">Dark Mode</p>
+                        <p className="font-medium text-green-600">Dark Mode</p>
                         <p className="text-sm text-gray-600">Switch between light and dark themes</p>
                       </div>
                     </div>
@@ -410,9 +390,9 @@ const SettingsPage = () => {
                   </div>
                 </div>
 
-                <div className="p-4 border border-gray-200 rounded-xl">
+                <div className="p-4 border border-green-600 rounded-xl">
                   <div className="mb-4">
-                    <p className="font-medium text-gray-900 mb-2">Theme Color</p>
+                    <p className="font-medium text-green-600 mb-2">Theme Color</p>
                     <p className="text-sm text-gray-600">Choose your accent color</p>
                   </div>
                   
@@ -428,9 +408,9 @@ const SettingsPage = () => {
                   </div>
                 </div>
 
-                <div className="p-4 border border-gray-200 rounded-xl">
+                <div className="p-4 border border-green-600 rounded-xl">
                   <div className="mb-4">
-                    <p className="font-medium text-gray-900 mb-2">Font Size</p>
+                    <p className="font-medium text-green-600 mb-2">Font Size</p>
                     <p className="text-sm text-gray-600">Adjust text size for better readability</p>
                   </div>
                   
@@ -461,24 +441,24 @@ const SettingsPage = () => {
           {activeTab === 'pwa' && (
             <Card>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
                   <Smartphone className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900">PWA Settings</h3>
+                  <h3 className="text-xl font-semibold text-green-600">PWA Settings</h3>
                   <p className="text-gray-600 text-sm">Install and manage app features</p>
                 </div>
               </div>
               
               <div className="space-y-6">
-                <div className="p-4 border border-gray-200 rounded-xl">
+                <div className="p-4 border border-green-600 rounded-xl">
                   <div className="mb-4">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-linear-to-br from-green-600 to-green-500 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-600 to-green-500 flex items-center justify-center">
                         <Smartphone className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">Install KASUWhisper App</p>
+                        <p className="font-medium text-green-600">Install KASUWhisper App</p>
                         <p className="text-sm text-gray-600">
                           Get the app experience on your device
                         </p>
@@ -487,7 +467,7 @@ const SettingsPage = () => {
                     
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="p-3 bg-green-50 rounded-lg">
-                        <h4 className="font-medium text-gray-900 mb-2">Benefits</h4>
+                        <h4 className="font-medium text-green-600 mb-2">Benefits</h4>
                         <ul className="space-y-2 text-sm text-gray-600">
                           <li className="flex items-center gap-2">
                             <div className="w-2 h-2 bg-green-600 rounded-full"></div>
@@ -509,7 +489,7 @@ const SettingsPage = () => {
                       </div>
                       
                       <div className="p-3 bg-green-50 rounded-lg">
-                        <h4 className="font-medium text-gray-900 mb-2">How to Install</h4>
+                        <h4 className="font-medium text-green-600 mb-2">How to Install</h4>
                         <ul className="space-y-2 text-sm text-gray-600">
                           <li>1. Click "Install App" below</li>
                           <li>2. Follow browser prompts</li>
@@ -530,12 +510,12 @@ const SettingsPage = () => {
                   </div>
                 </div>
 
-                <div className="p-4 border border-gray-200 rounded-xl">
+                <div className="p-4 border border-green-600 rounded-xl">
                   <div className="mb-4">
                     <div className="flex items-center gap-3 mb-3">
-                      <Zap className="w-5 h-5 text-gray-600" />
+                      <Zap className="w-5 h-5 text-green-600" />
                       <div>
-                        <p className="font-medium text-gray-900">Offline Mode</p>
+                        <p className="font-medium text-green-600">Offline Mode</p>
                         <p className="text-sm text-gray-600">Settings for using KASUWhisper offline</p>
                       </div>
                     </div>
@@ -543,7 +523,7 @@ const SettingsPage = () => {
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="font-medium text-gray-900">Cache Whispers</p>
+                          <p className="font-medium text-green-600">Cache Whispers</p>
                           <p className="text-sm text-gray-600">Store whispers for offline viewing</p>
                         </div>
                         <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-green-600">
@@ -553,7 +533,7 @@ const SettingsPage = () => {
                       
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="font-medium text-gray-900">Auto-sync</p>
+                          <p className="font-medium text-green-600">Auto-sync</p>
                           <p className="text-sm text-gray-600">Sync when back online</p>
                         </div>
                         <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-green-600">
@@ -564,7 +544,7 @@ const SettingsPage = () => {
                       <div className="pt-4 border-t border-gray-200">
                         <div className="flex items-center justify-between">
                           <div>
-                            <p className="font-medium text-gray-900">Cache Size</p>
+                            <p className="font-medium text-green-600">Cache Size</p>
                             <p className="text-sm text-gray-600">45.2 MB used</p>
                           </div>
                           <button className="px-3 py-1 border border-green-600 text-green-600 hover:bg-green-50 rounded-lg font-medium text-sm transition-colors">
@@ -576,19 +556,19 @@ const SettingsPage = () => {
                   </div>
                 </div>
 
-                <div className="p-4 border border-gray-200 rounded-xl">
+                <div className="p-4 border border-green-600 rounded-xl">
                   <div className="mb-4">
                     <div className="flex items-center gap-3 mb-3">
-                      <Volume2 className="w-5 h-5 text-gray-600" />
+                      <Volume2 className="w-5 h-5 text-green-600" />
                       <div>
-                        <p className="font-medium text-gray-900">Push Notifications</p>
+                        <p className="font-medium text-green-600">Push Notifications</p>
                         <p className="text-sm text-gray-600">Receive notifications even when app is closed</p>
                       </div>
                     </div>
                     
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="font-medium text-gray-900">Status</p>
+                        <p className="font-medium text-green-600">Status</p>
                         <p className="text-sm text-gray-600">Currently disabled</p>
                       </div>
                       <button className="px-3 py-1 border border-green-600 text-green-600 hover:bg-green-50 rounded-lg font-medium text-sm transition-colors">

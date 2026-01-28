@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { Home, Search, AlertCircle } from 'lucide-react'
 
@@ -22,7 +21,7 @@ const NotFoundPage = () => {
         </div>
 
         {/* Message */}
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
+        <h1 className="text-4xl md:text-5xl font-bold text-green-700 mb-5">
           Page Not Found
         </h1>
         

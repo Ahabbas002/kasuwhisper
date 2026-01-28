@@ -1,30 +1,6 @@
 import { useState, useEffect } from 'react'
-import { 
-  Users, 
-  Lock, 
-  Globe, 
-  MessageCircle, 
-  Share2, 
-  Settings, 
-  UserPlus,
-  Bell,
-  Shield,
-  Calendar,
-  TrendingUp,
-  ChevronLeft,
-  MoreVertical,
-  Send,
-  Image,
-  Smile,
-  Hash,
-  CheckCircle,
-  X,
-  BookOpen,
-  Award,
-  Clock,
-  BarChart
-} from 'lucide-react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { Users, Lock, Globe, MessageCircle, UserPlus, Shield, ChevronLeft, MoreVertical, Send, Image, Smile, Hash, CheckCircle, X } from 'lucide-react'
+import { useParams, useNavigate } from 'react-router-dom'
 import PostCard from '../components/feed/PostCard'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
@@ -175,7 +151,7 @@ const GroupDetailPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Group not found</h2>
+          <h2 className="text-2xl font-bold text-green-600 mb-2">Group not found</h2>
           <p className="text-gray-600 mb-4">The group you're looking for doesn't exist.</p>
           <Button onClick={() => navigate('/groups')}>
             Back to Groups
@@ -195,11 +171,11 @@ const GroupDetailPage = () => {
               onClick={() => navigate('/groups')}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
-              <ChevronLeft className="w-5 h-5 text-gray-700" />
+              <ChevronLeft className="w-5 h-5 text-green-600" />
             </button>
             
             <div className="text-center">
-              <h1 className="text-lg font-semibold text-gray-900 truncate max-w-50">
+              <h1 className="text-lg font-semibold text-green-600 truncate max-w-50">
                 {group.name}
               </h1>
               <p className="text-xs text-gray-500">
@@ -211,7 +187,7 @@ const GroupDetailPage = () => {
               onClick={() => setShowSettings(!showSettings)}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
-              <MoreVertical className="w-5 h-5 text-gray-700" />
+              <MoreVertical className="w-5 h-5 text-green-600" />
             </button>
           </div>
         </div>
@@ -219,7 +195,7 @@ const GroupDetailPage = () => {
 
       <div className="px-4 py-6">
         {/* Group Header Card */}
-        <Card className="mb-6">
+        <Card className="mb-6 shadow-lg">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-linear-to-br from-green-600 to-green-700 flex items-center justify-center">
@@ -227,7 +203,7 @@ const GroupDetailPage = () => {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h2 className="text-xl font-bold text-gray-900">{group.name}</h2>
+                  <h2 className="text-xl font-bold text-green-600">{group.name}</h2>
                   {group.isPrivate ? (
                     <Lock className="w-4 h-4 text-gray-500" />
                   ) : (
@@ -262,7 +238,7 @@ const GroupDetailPage = () => {
                 {group.isPrivate ? 'Request to Join' : 'Join Group'}
               </Button>
             ) : (
-              <Button variant="outline" icon={CheckCircle}>
+              <Button variant="outline" icon={CheckCircle} className='text-green-600 border-green-600'>
                 Member
               </Button>
             )}
@@ -271,19 +247,19 @@ const GroupDetailPage = () => {
 
         {/* Group Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
+          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-lg">
             <div className="text-2xl font-bold text-green-600 mb-1">{group.memberCount}</div>
             <div className="text-sm text-gray-600">Members</div>
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
+          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-lg">
             <div className="text-2xl font-bold text-green-600 mb-1">{group.postCount}</div>
             <div className="text-sm text-gray-600">Posts</div>
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
+          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-lg">
             <div className="text-2xl font-bold text-green-600 mb-1">92%</div>
             <div className="text-sm text-gray-600">Active</div>
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
+          <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-lg">
             <div className="text-2xl font-bold text-green-600 mb-1">4.8</div>
             <div className="text-sm text-gray-600">Rating</div>
           </div>
@@ -291,9 +267,9 @@ const GroupDetailPage = () => {
 
         {/* Create Post (for members) */}
         {isMember && (
-          <Card className="mb-6">
+          <Card className="mb-6 shadow-lg">
             <div className="flex gap-3">
-              <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-100 to-green-50 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0">
                 <span className="text-green-600 font-bold">A</span>
               </div>
               <div className="flex-1">
@@ -303,18 +279,18 @@ const GroupDetailPage = () => {
                     onChange={(e) => setNewPost(e.target.value)}
                     placeholder={`Post to ${group.name}...`}
                     rows={2}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600 resize-none"
                   />
                   <div className="flex items-center justify-between mt-3">
                     <div className="flex items-center gap-2">
                       <button type="button" className="p-2 hover:bg-gray-100 rounded-lg">
-                        <Image className="w-4 h-4 text-gray-600" />
+                        <Image className="w-4 h-4 text-green-600" />
                       </button>
                       <button type="button" className="p-2 hover:bg-gray-100 rounded-lg">
-                        <Smile className="w-4 h-4 text-gray-600" />
+                        <Smile className="w-4 h-4 text-green-600" />
                       </button>
                       <button type="button" className="p-2 hover:bg-gray-100 rounded-lg">
-                        <Hash className="w-4 h-4 text-gray-600" />
+                        <Hash className="w-4 h-4 text-green-600" />
                       </button>
                     </div>
                     <Button type="submit" disabled={!newPost.trim()}>
@@ -331,8 +307,8 @@ const GroupDetailPage = () => {
         {/* Recent Posts */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">Recent Posts</h3>
-            <Button variant="ghost" size="small">
+            <h3 className="text-lg font-semibold text-green-600">Recent Posts</h3>
+            <Button variant="ghost" size="small" className='text-green-600'>
               View All
             </Button>
           </div>
@@ -341,7 +317,7 @@ const GroupDetailPage = () => {
             {group.recentPosts?.map((post) => (
               <PostCard key={post.id} post={post} />
             )) || (
-              <Card>
+              <Card className='shadow-lg'>
                 <div className="text-center py-8">
                   <MessageCircle className="w-12 h-12 text-gray-300 mx-auto mb-3" />
                   <h4 className="text-lg font-medium text-gray-900 mb-2">No posts yet</h4>
@@ -358,10 +334,10 @@ const GroupDetailPage = () => {
         </div>
 
         {/* Group Rules */}
-        <Card className="mb-6">
+        <Card className="mb-6 shadow-lg">
           <div className="flex items-center gap-2 mb-4">
             <Shield className="w-5 h-5 text-green-600" />
-            <h3 className="text-lg font-semibold text-gray-900">Group Rules</h3>
+            <h3 className="text-lg font-semibold text-green-600">Group Rules</h3>
           </div>
           
           <ul className="space-y-2">

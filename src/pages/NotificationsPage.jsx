@@ -1,17 +1,5 @@
 import { useState, useEffect } from 'react'
-import {
-  Bell,
-  Check,
-  Trash2,
-  MessageSquare,
-  Users,
-  Heart,
-  AtSign,
-  Settings,
-  Clock,
-  Filter,
-  Shield
-} from 'lucide-react'
+import { Bell, Check, Trash2, MessageSquare, Users, Heart, AtSign, Settings, Clock } from 'lucide-react'
 import Card from '../components/ui/Card'
 
 const NotificationsPage = () => {
@@ -170,7 +158,7 @@ const NotificationsPage = () => {
       <div className="min-h-screen bg-linear-to-b from-gray-50 to-white flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 mx-auto mb-4 border-4 border-green-200 border-t-green-600 rounded-full animate-spin"></div>
-          <p className="text-gray-600">Loading notifications...</p>
+          <p className="text-green-600">Loading notifications...</p>
         </div>
       </div>
     )
@@ -187,11 +175,11 @@ const NotificationsPage = () => {
           </div>
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
                 <Bell className="w-6 h-6 text-green-600" />
               </div>
               {unreadCount > 0 && (
-                <span className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white text-sm font-semibold rounded-full flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-sm font-semibold rounded-full flex items-center justify-center">
                   {unreadCount > 99 ? '99+' : unreadCount}
                 </span>
               )}
@@ -201,7 +189,7 @@ const NotificationsPage = () => {
       </div>
 
       {/* Filters and Actions */}
-      <Card className="mb-6">
+      <Card className="mb-6 shadow-lg">
         <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
           <div className="flex flex-wrap gap-2">
             <button
@@ -267,11 +255,11 @@ const NotificationsPage = () => {
 
       {/* Notifications List */}
       {filteredNotifications.length === 0 ? (
-        <Card className="text-center py-12">
+        <Card className="text-center py-12 shadow-lg">
           <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
             <Bell className="w-10 h-10 text-green-600" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">No notifications</h3>
+          <h3 className="text-xl font-semibold text-green-600 mb-2">No notifications</h3>
           <p className="text-gray-600 mb-6">
             {filter === 'unread' 
               ? 'You have no unread notifications'
@@ -279,8 +267,7 @@ const NotificationsPage = () => {
           </p>
           <button
             onClick={() => setFilter('all')}
-            className="px-6 py-2 bg-green-600 text-white hover:bg-green-700 rounded-lg font-medium transition-colors"
-          >
+            className="px-6 py-2 bg-green-600 text-white hover:bg-green-700 rounded-lg font-medium transition-colors shadow-lg">
             View all notifications
           </button>
         </Card>
@@ -289,12 +276,12 @@ const NotificationsPage = () => {
           {filteredNotifications.map((notification) => (
             <div
               key={notification.id}
-              className={`p-4 rounded-xl border transition-all duration-200 ${getNotificationColor(
+              className={`p-4 rounded-xl shadow-lg transition-all duration-200 ${getNotificationColor(
                 notification.type
-              )} ${!notification.read ? 'ring-1 ring-green-500/20' : ''}`}
+              )} ${!notification.read ? '' : ''}`}
             >
               <div className="flex items-start gap-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${
                   !notification.read ? 'bg-white' : 'bg-gray-50'
                 }`}>
                   {getNotificationIcon(notification.type)}
@@ -327,7 +314,7 @@ const NotificationsPage = () => {
                         className={`px-3 py-1.5 rounded-lg font-medium text-sm transition-colors ${
                           notification.read
                             ? 'text-gray-600 bg-gray-100 hover:bg-gray-200'
-                            : 'text-green-600 bg-green-100 hover:bg-green-200'
+                            : 'text-green-600 bg-green-50 hover:bg-green-100'
                         }`}
                       >
                         {notification.read ? 'Read' : 'Mark as read'}
@@ -350,21 +337,21 @@ const NotificationsPage = () => {
 
       {/* Stats Summary */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-        <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+        <div className="bg-green-50 border border-green-200 rounded-xl p-4 shadow-lg">
           <div className="text-2xl font-bold text-green-600">{notifications.length}</div>
           <div className="text-sm text-gray-600">Total Notifications</div>
         </div>
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 shadow-lg">
           <div className="text-2xl font-bold text-blue-600">{unreadCount}</div>
           <div className="text-sm text-gray-600">Unread</div>
         </div>
-        <div className="bg-purple-50 border border-purple-200 rounded-xl p-4">
+        <div className="bg-purple-50 border border-purple-200 rounded-xl p-4 shadow-lg">
           <div className="text-2xl font-bold text-purple-600">
             {notifications.filter(n => n.type === 'comment').length}
           </div>
           <div className="text-sm text-gray-600">Comments</div>
         </div>
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 shadow-lg">
           <div className="text-2xl font-bold text-amber-600">
             {notifications.filter(n => n.type === 'reaction').length}
           </div>
@@ -373,14 +360,14 @@ const NotificationsPage = () => {
       </div>
 
       {/* Notification Settings */}
-      <Card className="mt-8 p-4">
+      <Card className="mt-8 p-4 shadow-lg">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
               <Settings className="w-5 h-5 text-green-600" />
             </div>
             <div>
-              <h3 className="font-medium text-gray-900">Notification Settings</h3>
+              <h3 className="font-medium text-green-600">Notification Settings</h3>
               <p className="text-sm text-gray-600">Customize what notifications you receive</p>
             </div>
           </div>

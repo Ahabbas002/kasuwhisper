@@ -25,8 +25,6 @@ const GroupsPage = () => {
     return matchesSearch
   })
 
-  const joinedGroups = mockGroups.slice(0, 2)
-
   const handleJoinGroup = (code) => {
     console.log('Joining group with code:', code)
     // API call would go here
@@ -61,7 +59,7 @@ const GroupsPage = () => {
                   placeholder="Search groups..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600"
                 />
               </div>
               
@@ -132,36 +130,21 @@ const GroupsPage = () => {
             </Button>
           </div>
 
-          {/* Your Groups */}
-          {joinedGroups.length > 0 && (
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
-                Your Groups
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {joinedGroups.map((group) => (
-                  <GroupCard key={group.id} group={group} isJoined={true} />
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* All Groups */}
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-semibold text-green-600 mb-4">
               {filter === 'all' ? 'All Groups' : 
                filter === 'public' ? 'Public Groups' :
                filter === 'private' ? 'Private Groups' : 'Your Groups'}
-              <span className="text-gray-500 text-sm font-normal ml-2">
+              <span className="text-green-600 text-sm font-normal ml-2">
                 ({filteredGroups.length})
               </span>
             </h2>
             
             {filteredGroups.length === 0 ? (
               <Card className="text-center py-12">
-                <Users className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No groups found</h3>
+                <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-green-600 mb-2">No groups found</h3>
                 <p className="text-gray-600 mb-4">
                   {searchQuery 
                     ? `No groups match "${searchQuery}"`
@@ -188,7 +171,7 @@ const GroupsPage = () => {
         <div className="space-y-6">
           {/* Group Guidelines */}
           <Card>
-            <h3 className="font-semibold text-lg mb-4">Group Guidelines</h3>
+            <h3 className="font-semibold text-lg text-green-600 mb-4">Group Guidelines</h3>
             <ul className="space-y-3 text-sm text-gray-600">
               <li className="flex items-start gap-2">
                 <div className="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs mt-0.5 shrink-0">
@@ -219,11 +202,11 @@ const GroupsPage = () => {
 
           {/* Quick Stats */}
           <Card>
-            <h3 className="font-semibold text-lg mb-4">Group Stats</h3>
+            <h3 className="font-semibold text-lg mb-4 text-green-600">Group Stats</h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
                 <div className="flex items-center gap-3">
-                  <Globe className="w-5 h-5 text-gray-600" />
+                  <Globe className="w-5 h-5 text-green-600" />
                   <span className="text-gray-700">Public Groups</span>
                 </div>
                 <span className="font-semibold text-green-600">
@@ -232,7 +215,7 @@ const GroupsPage = () => {
               </div>
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
                 <div className="flex items-center gap-3">
-                  <Lock className="w-5 h-5 text-gray-600" />
+                  <Lock className="w-5 h-5 text-green-600" />
                   <span className="text-gray-700">Private Groups</span>
                 </div>
                 <span className="font-semibold text-green-600">
@@ -241,7 +224,7 @@ const GroupsPage = () => {
               </div>
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
                 <div className="flex items-center gap-3">
-                  <Users className="w-5 h-5 text-gray-600" />
+                  <Users className="w-5 h-5 text-green-600" />
                   <span className="text-gray-700">Total Members</span>
                 </div>
                 <span className="font-semibold text-green-600">
@@ -253,7 +236,7 @@ const GroupsPage = () => {
 
           {/* Popular Departments */}
           <Card>
-            <h3 className="font-semibold text-lg mb-4">Popular Departments</h3>
+            <h3 className="font-semibold text-lg mb-4 text-green-600">Popular Departments</h3>
             <div className="space-y-3">
               {['Computer Science', 'Mathematics', 'Biology', 'Chemistry', 'Physics']
                 .map((dept) => (
@@ -279,33 +262,33 @@ const GroupsPage = () => {
       >
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-green-600 mb-2">
               Group Name
             </label>
             <input
               type="text"
               placeholder="e.g., Computer Science 2024"
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500"
+              className="w-full px-4 py-2 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-green-600 mb-2">
               Description
             </label>
             <textarea
               placeholder="Describe your group's purpose..."
               rows={3}
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500"
+              className="w-full px-4 py-2 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-green-600 mb-2">
               Department
             </label>
-            <select className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500">
-              <option value="">Select Department</option>
+            <select className="w-full px-4 py-2 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600">
+              <option value="" selected disabled>Select Department</option>
               <option value="cs">Computer Science</option>
               <option value="math">Mathematics</option>
               <option value="bio">Biology</option>
@@ -314,30 +297,30 @@ const GroupsPage = () => {
             </select>
           </div>
           
-          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+          <div className="flex items-center justify-between p-4 bg-green-50 shadow-lg rounded-xl">
             <div>
-              <h4 className="font-medium text-gray-900">Privacy Settings</h4>
+              <h4 className="font-medium text-green-600">Privacy Settings</h4>
               <p className="text-sm text-gray-600">Choose who can join your group</p>
             </div>
-            <select className="w-32 px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500">
+            <select className="w-32 px-4 py-2 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600">
               <option value="public">Public</option>
               <option value="private">Private</option>
             </select>
           </div>
           
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-4 pb-4">
             <Button
               variant="outline"
               fullWidth
               onClick={() => setShowCreateModal(false)}
-              className="text-green-600 border-green-600 hover:bg-green-50"
+              className="text-green-600 border-green-600 hover:bg-green-50 shadow-lg"
             >
               Cancel
             </Button>
             <Button
               fullWidth
               onClick={handleCreateGroup}
-              className="bg-green-600 hover:bg-green-700"
+              className="bg-green-600 hover:bg-green-700 shadow-lg"
             >
               Create Group
             </Button>
@@ -353,7 +336,7 @@ const GroupsPage = () => {
       >
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-green-600 mb-2">
               Invitation Code
             </label>
             <input
@@ -361,7 +344,7 @@ const GroupsPage = () => {
               value={joinCode}
               onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
               placeholder="Enter 8-character code"
-              className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 text-center tracking-widest"
+              className="w-full px-4 py-2 rounded-xl border border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 focus:border-green-600 text-center tracking-widest"
               maxLength={8}
             />
           </div>
@@ -381,7 +364,7 @@ const GroupsPage = () => {
               variant="outline"
               fullWidth
               onClick={() => setShowJoinModal(false)}
-              className="text-green-600 border-green-600 hover:bg-green-50"
+              className="text-green-600 border-green-600 hover:border-green-600 hover:bg-green-50"
             >
               Cancel
             </Button>
@@ -407,7 +390,7 @@ const GroupCard = ({ group, isJoined = false }) => {
       <div className="flex flex-col h-full">
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-lg bg-linear-to-br from-green-100 to-green-50 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full bg-linear-to-br from-green-100 to-green-50 flex items-center justify-center">
               <Users className="w-6 h-6 text-green-600" />
             </div>
             <div>
